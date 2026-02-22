@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GoalPilot AI - Financial Goal Coach</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>GoalPilot</h1>
+    <p>AI-Powered Financial Goal Planning</p>
+</header>
+
+<!-- Landing Page -->
+<section id="landing">
+    <h2>Turn financial overwhelm into clear action.</h2>
+    <p>Plan your goals. Understand trade-offs. Move forward confidently.</p>
+    <button id="startBtn">Start Planning</button>
+</section>
+
+<!-- Main App Container -->
+<main id="app" style="display:none;">
+
+    <!-- Income Section -->
+    <section id="incomeSection">
+        <h2>Monthly Income</h2>
+        <div id="incomeFields">
+            <!-- JS will generate up to 10 income fields -->
+        </div>
+    </section>
+
+    <!-- Expense Section -->
+    <section id="expenseSection">
+        <h2>Monthly Expenses</h2>
+
+        <h3>Fixed Expense (Required)</h3>
+        <input type="text" id="fixedExpenseName" placeholder="Expense Name (Optional)">
+        <input type="number" id="fixedExpenseAmount" placeholder="Amount">
+
+        <h3>Variable Expenses (Optional)</h3>
+        <div id="variableExpenseFields">
+            <!-- JS will generate up to 10 variable expense fields -->
+        </div>
+    </section>
+
+    <!-- Savings Section -->
+    <section id="savingsSection">
+        <h2>Current Savings</h2>
+        <input type="number" id="currentSavings" placeholder="Total Savings">
+    </section>
+
+    <!-- Emergency Fund Section -->
+    <section id="emergencySection">
+        <h2>Emergency Fund</h2>
+        <p>Recommended: 3 months of expenses</p>
+        <input type="number" id="emergencyAmount" placeholder="Emergency Fund Target">
+        <p id="emergencyRiskMessage" style="display:none; color:red;">
+            Choosing 0 may increase financial risk if unexpected events occur.
+        </p>
+    </section>
+
+    <!-- Goals Section -->
+    <section id="goalsSection">
+        <h2>Financial Goals (Max 10)</h2>
+        <div id="goalFields">
+            <!-- JS will dynamically add goals -->
+        </div>
+        <button id="addGoalBtn">Add Goal</button>
+    </section>
+
+    <!-- Scenario Explorer -->
+    <section id="scenarioSection">
+        <h2>Scenario Explorer</h2>
+        <label>Spending Adjustment (Monthly Reduction)</label>
+        <input type="number" id="spendingAdjustment" placeholder="0">
+
+        <div id="scenarioResults">
+            <!-- Calculation results will appear here -->
+        </div>
+    </section>
+
+    <!-- Dashboard -->
+    <section id="dashboardSection">
+        <h2>Your Plan Summary</h2>
+        <div id="planSummary"></div>
+        <button id="recalculateBtn">Recalculate</button>
+    </section>
+
+    <!-- AI Insight Section -->
+    <section id="aiSection">
+        <h2>AI Coaching Insight</h2>
+        <button id="generateInsightBtn">Generate Insight</button>
+        <div id="aiResponse"></div>
+    </section>
+
+</main>
+
+<footer>
+    <p>
+        This tool provides educational planning support and does not constitute financial advice.
+    </p>
+</footer>
+
+<script src="js/script.js"></script>
+<script src="js/model.js"></script>
+<script src="js/validation.js"></script>
+<script src="js/calculations.js"></script>
+<script src="js/ai.js"></script>
+
+</body>
+</html>
