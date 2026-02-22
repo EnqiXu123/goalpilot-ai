@@ -25,7 +25,9 @@ Including emergency fund planning
 Running transparent feasibility formulas
 Simulating trade-offs
 Providing educational AI coaching insights
+
 2. Scope
+   
 In Scope (MVP v1.0)
 Landing page experience
 Multiple income input fields (up to 10)
@@ -38,6 +40,7 @@ Scenario simulation with manual adjustments
 AI coaching summary with fallback behavior
 Validation with user-friendly error messaging
 Educational disclaimer
+
 Out of Scope (MVP v1.0)
 Bank integrations
 Real-time transaction syncing
@@ -48,7 +51,8 @@ Mobile native app
 Notifications
 Regulated financial advice
 Product analytics instrumentation
-3. Functional Requirements (User Story + Acceptance Criteria)
+
+4. Functional Requirements (User Story + Acceptance Criteria)
 FR-01 — Landing Page
 User Story
 As a new user, I want to see what GoalPilot does before I start planning so I understand the value.
@@ -58,6 +62,7 @@ Acceptance Criteria
 Landing page displays purpose and value proposition.
 CTA button labeled Start Planning is visible.
 Educational disclaimer is visible in footer.
+
 FR-02 — Income Inputs
 User Story
 As a user, I want to enter multiple monthly income sources so my plan reflects reality.
@@ -70,6 +75,7 @@ Amount accepts integers only in range 0..99,999,999.
 Decimals and negative values are rejected with clear inline error.
 Blank amount is treated as 0.
 Total Monthly Income = sum(all income amounts).
+
 FR-03 — Expense Inputs (Fixed + Variable)
 User Story
 As a user, I want to separate fixed and variable expenses so calculations are realistic.
@@ -85,6 +91,7 @@ Variable amount accepts integers only in range 0..99,999,999.
 Decimals and negatives are rejected with clear inline error.
 Blank variable amounts are treated as 0.
 Total Monthly Expense = Fixed Expense + sum(variable expenses).
+
 FR-04 — Current Savings Input and Inclusion Choice
 User Story
 As a user, I want control over whether current savings is used in calculations.
@@ -97,6 +104,7 @@ If user selects No, savings remains reserve-only and is excluded from feasibilit
 If user selects Yes, user manually allocates savings by amount to emergency fund and/or goals.
 Allocation inputs accept integers >= 0.
 Unallocated savings remains reserve.
+
 FR-05 — Emergency Fund
 User Story
 As a user, I want emergency planning included so I can reduce risk.
@@ -109,6 +117,7 @@ Default emergency timeline is 12 months.
 User can accept, edit, or set emergency target to 0.
 Emergency amount accepts integers only in range 0..99,999,999.
 If emergency target is 0, risk explanation is displayed and user can proceed.
+
 FR-06 — Financial Goals
 User Story
 As a user, I want to add multiple goals with targets, timelines, and priority.
@@ -120,6 +129,7 @@ Each goal requires name, target amount, timeline (months), and priority rank.
 Goal target accepts integers in range 1..99,999,999.
 Goal timeline accepts integers in range 1..600.
 System blocks adding more than 10 goals with clear message.
+
 FR-07 — Feasibility Calculation Engine
 User Story
 As a user, I want clear visibility of whether my plan is achievable.
@@ -137,6 +147,7 @@ Emergency Required Monthly = ceil(Remaining Emergency Target / Emergency Timelin
 Goal Required Monthly_i = ceil(Remaining Goal Target_i / Goal Timeline_i).
 Total Required Monthly Saving = Emergency Required Monthly + sum(Goal Required Monthly_i).
 If Total Required Monthly Saving <= Monthly Surplus, result is feasible; otherwise conflict exists.
+
 FR-08 — Prioritization Logic
 User Story
 As a user, I want clear priority rules when funds are insufficient.
@@ -146,6 +157,7 @@ Acceptance Criteria
 Priority order is deterministic: emergency fund first, then user-ranked goals.
 Conflict explanations follow this same order.
 Recommendations and allocation views follow this same order.
+
 FR-09 — Scenario Explorer
 User Story
 As a user, I want to simulate adjustment strategies and see impact instantly.
@@ -156,6 +168,7 @@ Minimum 3 strategy options are always available: Cut Spending, Extend Timeline, 
 Manual input controls are provided for each strategy.
 Any change recalculates surplus and feasibility instantly.
 Risk indicator remains visible if emergency target is 0.
+
 FR-10 — AI Coaching Insight
 User Story
 As a user, I want educational coaching insights about trade-offs and next actions.
@@ -168,6 +181,7 @@ AI output must include 3 sections: Trade-offs, Priority Order, Next Adjustments.
 Output is labeled educational-only.
 AI response target is under 10 seconds.
 If timeout/failure occurs, system displays deterministic rule-based fallback with the same 3-section format.
+
 FR-11 — Dashboard
 User Story
 As a user, I want one summary view so I can understand my plan quickly.
@@ -179,6 +193,7 @@ Dashboard displays required monthly savings by emergency and goals.
 Dashboard displays allocation breakdown and feasibility status.
 Dashboard displays risk indicator when emergency target is 0.
 Recalculate action is available.
+
 FR-12 — Validation and Default Labels
 User Story
 As a user, I want clear validation and readable labels so I can correct errors quickly.
@@ -190,6 +205,7 @@ Decimals and negatives are rejected with inline messages.
 Mandatory fields cannot be blank.
 Numeric range bounds are enforced per field.
 Blank optional names are auto-labeled in outputs as Income N, Expense N, Goal N.
+
 4. Non-Functional Requirements
 NFR-01 — Input Validation
 Clear, field-level, user-friendly error messaging.
@@ -204,12 +220,14 @@ NFR-04 — Accessibility
 Mobile responsive design.
 High contrast and large touch/click targets.
 Target standard: WCAG 2.2 AA.
+
 NFR-05 — Data Handling and Privacy
 No persistent financial data storage required for MVP.
 Data handled session-only in app flow.
 AI processing configured for zero retention.
 Educational disclaimer always visible.
-5. MVP Success Criteria (No Analytics)
+
+6. MVP Success Criteria (No Analytics)
 Measured via pilot usability testing (manual observation/logging):
 
 Plan completion rate >= 60%.
